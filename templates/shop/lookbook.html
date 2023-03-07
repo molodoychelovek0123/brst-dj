@@ -1,0 +1,45 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %} Lookbooks {% endblock %}
+{% block content %}
+
+                <div class="scrollable-mask">
+                <div class="scrollable-content masked-content lookbook-page">
+                    <div class="lookbook">
+                        <div class="row">
+                            <!-- Количество элементов должно быть кратно 4 -->
+                            <a href="https://google.com" class="lookbook__item">
+                                <img src="{% static 'shop/img/interstellar-2023.png' %}" alt="Я альтернативный текст для SEO, меня вставит Игорь :)">
+                                <h3>interstellar – 2023</h3>
+                            </a>
+                            <a href="https://google.com"  class="lookbook__item">
+                                <img src="{% static 'shop/img/earth-2022.png' %}" alt="Я альтернативный текст для SEO, меня вставит Игорь :)">
+                                <h3>EARTH - 2022</h3>
+                            </a>
+                            <a href="https://google.com"  class="lookbook__item">
+                                <img src="{% static 'shop/img/interstellar-2023.png' %}" alt="Я альтернативный текст для SEO, меня вставит Игорь :)">
+                                <h3>Interstellar - 2023</h3>
+                            </a>
+                            <a href="https://google.com" class="lookbook__item">
+                                <img src="{% static 'shop/img/earth-2022.png' %}" alt="Я альтернативный текст для SEO, меня вставит Игорь :)">
+                                <h3>EARTH - 2022</h3>
+                            </a>
+                            <a href="https://google.com" class="lookbook__item">
+                                <img src="{% static 'shop/img/interstellar-2023.png' %}" alt="Я альтернативный текст для SEO, меня вставит Игорь :)">
+                                <h3>Interstellar - 2023</h3>
+                            </a>
+                            <a href="https://google.com" class="lookbook__item">
+                                <img src="{% static 'shop/img/interstellar-2023.png' %}" alt="Я альтернативный текст для SEO, меня вставит Игорь :)">
+                                <h3>Interstellar - 2023</h3>
+                            </a>
+                            <div  class="lookbook__item">
+                                <!-- Я пустой блок, потому что Кирилл мудак и не смог нормально сверстать -->
+                            </div>
+                            <div class="lookbook__item">
+                                <!-- Я пустой блок, потому что Кирилл мудак и не смог нормально сверстать -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %} Product {% endblock %}
+{% block content %}
+<div class="scrollable-mask">
+                    <div class="product-page masked-content">
+                        <section class="slider">
+                            <div class="container">
+                                <div class="slider__flex">
+                                    <div class="slider__col">
+                                        <div class="slider__thumbs">
+                                            <div class="swiper-container">
+                                                <!-- Эти swiper-wrapper одинаковые, можешь выделить их в отдельную функцию -->
+                                                <div class="swiper-wrapper">
+                                                    {% for img in images %}
+                                                    <div class="swiper-slide" data-swiper-slide-index="{{ forloop.counter }}">
+                                                        <div class="slider__image glitched">
+                                                            <picture>
+                                                                <source srcset="{{img.image.url}}"
+                                                                        media="(min-width: 600px)">
+                                                                <!-- TODO:// Ссылка на мобильную картинку -->
+                                                                <img src="{{img.image.url}}"
+                                                                     alt="Альтернативный текст для SEO пж пж пж Игорь добавь а то меня выебут;c">
+                                                            </picture>
+                                                            <!-- TODO:// Если вдруг будет сильное желание сделать обработчик для мобилки. Если мобилка грузить мобильное изображение в бекграуд. Но я думаю это уже на беке -->
+                                                            <div class="glitch"
+                                                                 style="background-image:url('{{img.image.url}}');"></div>
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="slider__images">
+                                        <div class="slider__square">
+                                            <div class="swiper-container">
+                                                <!-- Эти swiper-wrapper одинаковые, можешь выделить их в отдельную функцию -->
+                                                <div class="swiper-wrapper">
+                                                    {% for img in images %}
+                                                    <div class="swiper-slide" data-swiper-slide-index="{{ forloop.counter }}">
+                                                        <div class="slider__image glitched">
+                                                            <picture>
+                                                                <source srcset="{{img.image.url}}"
+                                                                        media="(min-width: 600px)">
+                                                                <!-- TODO:// Ссылка на мобильную картинку -->
+                                                                <img src="{{img.image.url}}"
+                                                                     alt="Альтернативный текст для SEO пж пж пж Игорь добавь а то меня выебут;c">
+                                                            </picture>
+                                                            <!-- TODO:// Если вдруг будет сильное желание сделать обработчик для мобилки. Если мобилка грузить мобильное изображение в бекграуд. Но я думаю это уже на беке -->
+                                                            <div class="glitch"
+                                                                 style="background-image:url('{{img.image.url}}');"></div>
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slider__nav">
+
+                                            <div class="slider__prev"></div>
+                                            <div class="slider__fraction">
+
+                                            </div>
+
+                                            <div class="slider__next"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+
+
+                        <div class="scrollable-content">
+                            <h1 class="product-title">{{ type.title }}</h1>
+                            <h2 class="h1 price">${{ product.price }}</h2>
+                            <p class = "product-first-description">{{ type.main_info|linebreaks }}</p>
+                            <div class="product-options">
+                                <h3 class="product-options__title">SLEEVES:</h3>
+                                <div class="row">
+<!--                                     TODO:// Придумать как должны выглядеть items, должны ли это быть тупые ссылки или же придумать иновацонное революционне решение -->
+                                    <a class="product-options__item active" href="/product.html">
+                                        <img src="{% static 'shop/img/products/1/longsleeve3.png' %}" alt="Тут должно быть SEO ;c">
+                                    </a>
+                                    <a class="product-options__item" href="/product.html">
+                                        <img src="{% static 'shop/img/products/1/longsleeve4.png' %}" alt="Тут должно быть SEO ;c">
+                                    </a>
+                                </div>
+                            </div>
+                            <form class="product-actions">
+                                <input type="hidden" name="name" value="LONG-SLEEVE">
+                                <input type="hidden" name="id" value="3132">
+                                <label for="size"></label>
+                                <select name="size" id="size">
+                                    {% for p in products %}
+                                    <option value="{{ mod.size }}">{{ p.size }}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ADD TO CART" class="h1">
+                            </form>
+                            <p class="product-second-description">
+                                {{ type.description|linebreaks }}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                    <div class="message-container">
+                        <div class="message INFO">
+                            <div class="close">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.375 8.4375H10.3125V9.375H11.25V11.25H9.375V10.3125H8.4375V9.375H6.5625V10.3125H5.625V11.25H3.75V9.375H4.6875V8.4375H5.625V6.5625H4.6875V5.625H3.75V3.75H5.625V4.6875H6.5625V5.625H8.4375V4.6875H9.375V3.75H11.25V5.625H10.3125V6.5625H9.375V8.4375ZM14.0625 15H0.9375V14.0625H0V0.9375H0.9375V0H14.0625V0.9375H15V14.0625H14.0625V15ZM1.875 1.875V13.125H13.125V1.875H1.875Z"
+                                          fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="text h3">
+                                [INFO] LONG SLEEVE (with large corduroy sleeve) added to cart
+                            </div>
+                        </div>
+                        <div class="message ERROR">
+                            <div class="close">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.375 8.4375H10.3125V9.375H11.25V11.25H9.375V10.3125H8.4375V9.375H6.5625V10.3125H5.625V11.25H3.75V9.375H4.6875V8.4375H5.625V6.5625H4.6875V5.625H3.75V3.75H5.625V4.6875H6.5625V5.625H8.4375V4.6875H9.375V3.75H11.25V5.625H10.3125V6.5625H9.375V8.4375ZM14.0625 15H0.9375V14.0625H0V0.9375H0.9375V0H14.0625V0.9375H15V14.0625H14.0625V15ZM1.875 1.875V13.125H13.125V1.875H1.875Z"
+                                          fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="text h3">
+                                [ERROR] LONG SLEEVE (with large corduroy sleeve) added to cart
+                            </div>
+                        </div>
+                        <div class="message SUCCESS">
+                            <div class="close">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.375 8.4375H10.3125V9.375H11.25V11.25H9.375V10.3125H8.4375V9.375H6.5625V10.3125H5.625V11.25H3.75V9.375H4.6875V8.4375H5.625V6.5625H4.6875V5.625H3.75V3.75H5.625V4.6875H6.5625V5.625H8.4375V4.6875H9.375V3.75H11.25V5.625H10.3125V6.5625H9.375V8.4375ZM14.0625 15H0.9375V14.0625H0V0.9375H0.9375V0H14.0625V0.9375H15V14.0625H14.0625V15ZM1.875 1.875V13.125H13.125V1.875H1.875Z"
+                                          fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="text h3">
+                                [SUCCESS] LONG SLEEVE (with large corduroy sleeve) added to cart
+                            </div>
+                        </div>
+                    </div>
+{% endblock %}
